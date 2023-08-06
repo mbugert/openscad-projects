@@ -1,3 +1,12 @@
+// Simple generic 3D shape of a screw, for cutting screw holes into objects.
+module generic_screw_3d(grooving_diameter, screw_depth, head_diameter, head_depth) {
+    translate([0,0,-head_depth]) {
+        cylinder(r=head_diameter/2, h=head_depth);
+        translate([0,0,-screw_depth])
+            cylinder(r=grooving_diameter/2, h=screw_depth+dif);
+    }
+}
+
 screw_fn = 20;
 screw_m3 = "M3";
 screw_m4 = "M4";
