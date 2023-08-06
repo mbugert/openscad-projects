@@ -15,6 +15,3 @@ Source for the frame used in the second picture: https://www.printables.com/mode
 * print settings: 0.2mm with supports
     * print orientation: ![](docs/adapter_printed03.webp)
       There will be supports between the adapter winglets which are annoying to remove. Printing it this way will make the visible areas of the part look great though.
-
-## External Dependencies
-* `GoPro_Mount.scad`: developed by Thingiverse user [julietta](https://www.thingiverse.com/julietta/), released under BSD license, https://www.thingiverse.com/thing:3088912

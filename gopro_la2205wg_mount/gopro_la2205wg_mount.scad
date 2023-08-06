@@ -1,5 +1,5 @@
 include <../shared/common.scad>
-use <external/GoPro_Mount.scad>
+use <../shared/external/GoPro_Mount.scad>
 
 $fn = 100;
 
