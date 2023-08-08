@@ -40,6 +40,30 @@ module opening(r) {
     }
 }
 
+module circle_section(r, deg) {
+    // triangle section covering up to 90°
+    module 90_deg_segment(d) {
+        points = [[0, 0], [1, 0], [cos(d), sin(d)]];
+        polygon(points);
+    }
+    // combination of triangle sections covering up to 360°
+    module 360_deg_segment() {
+        for (i = [0:90:360]) {
+            if (deg > i) {
+                rotate([0, 0, i]) {
+                    90_deg_segment(min(deg - i, 90));
+                }
+            }
+        }
+    }
+    intersection() {
+        circle(r);
+        scale(2*r) {
+            360_deg_segment();
+        }
+    }
+}
+
 // For 2D round chamfers, see https://forum.openscad.org/how-to-make-round-chamfer-at-2D-object-tp19714p19799.html
 module round_chamfer(r=0, delta=0, chamfer=false, keep_size = false) {
     if (keep_size) {
