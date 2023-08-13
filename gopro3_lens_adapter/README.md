@@ -15,6 +15,7 @@ Camera perspective:
 
 The printed adapter is simply slid onto the built-in lens.
 
+## Customization
 For a lens diameter other than 37mm, change `lens_d` in the SCAD file. There is variance in GoPro lens dimensions (for the GoPros I own, the fit varies between snug and loose), so some experimentation with `gopro_lens_outer_d` may be necessary.
 
 If your printer can print overhangs well, flatter adapters can be printed by reducing `printer_max_overhang_degrees` in [common.scad](../shared/common.scad).

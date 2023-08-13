@@ -1,6 +1,7 @@
 // extra space, so difference() operations in 3D are rendered without
 // z-fighting in the OpenSCAD preview
 dif = 1;
+dif_factor = 1.01;
 
 // sometimes a large value is needed to cut certain regions
 max_value = 100000;
