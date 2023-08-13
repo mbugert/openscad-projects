@@ -1,10 +1,12 @@
 # OpenSCAD Projects
 Monorepo with OpenSCAD projects for functional and decorative 3D printed objects.
 
-* Compatible with OpenSCAD release 2021.01 or later.
-* OpenSCAD docs: https://openscad.org/index.html
+* Projects are compatible with OpenSCAD release 2021.01 or later.
+* All dimensions in SCAD files are in millimeters.
 
-## Functional
+Get started with OpenSCAD here: https://openscad.org/index.html
+
+## Functional Objects
 
 | Folder | Image | Description | Pre-generated STL files |
 |--------|-------|-------------|-----------|
@@ -20,7 +22,7 @@ Monorepo with OpenSCAD projects for functional and decorative 3D printed objects
 | [tidafors_foot_extension](tidafors_foot_extension) | ![](tidafors_foot_extension/docs/sandwich_printed02.webp) | Printable couch feet extensions to make a robot vacuum fit underneath an [IKEA Tidafors couch](https://www.ikea.com/us/en/assembly_instructions/tidafors-sofa-bed__AA-509180-4_pub.PDF). | [printables.com](https://www.printables.com/model/544671-extension-for-ikea-tidafors-couch-feet) |
 | [x220t_hdd_lid](x220t_hdd_lid) | ![](x220t_hdd_lid/docs/lid_01.webp) | Thinkpad X220 Tablet hard drive lid. | |
 
-## Decorative
+## Decorative Objects
 
 | Folder | Image | Description | Pre-generated STL files |
 |--------|-------|-------------|-----------|

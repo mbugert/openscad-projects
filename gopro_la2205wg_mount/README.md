@@ -6,7 +6,7 @@ Adapter for mounting a GoPro on an external monitor. The monitor: HP LA2205WG [[
 
 I don't expect anyone to own that particular monitor, but the design can be easily adjusted to monitors with similarly shaped bezels.
 
-Source for the frame used in the second picture: https://www.printables.com/model/202221-gopro-hero-3-improved-top-and-bottom-frame-mounts
+The GoPro frame used in the second picture is this one: https://www.printables.com/model/202221-gopro-hero-3-improved-top-and-bottom-frame-mounts
 
 
 ### Print Settings

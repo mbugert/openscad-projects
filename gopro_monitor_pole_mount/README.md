@@ -5,7 +5,7 @@ A GoPro mount for monitors with pole-shaped stands. The mount is offset to cente
 ![](docs/front.webp)
 ![](docs/preview.webp)
 
-Source for the frame used in pictures 1 and 2: https://www.printables.com/model/202221-gopro-hero-3-improved-top-and-bottom-frame-mounts
+The GoPro frame used in pictures 1 and 2 is this one: https://www.printables.com/model/202221-gopro-hero-3-improved-top-and-bottom-frame-mounts
 
 ## Print Settings
 * printer: Prusa Mini+
