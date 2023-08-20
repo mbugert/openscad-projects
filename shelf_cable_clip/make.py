@@ -22,6 +22,9 @@ presets = [Preset("kallax-inner", 16.2, 20),
            Preset("besta-shelf,outer", 18.35, 15.75),
            Preset("besta-top", 30.7, 15.75),
            Preset("besta-center", 37.7, 15.75),
+           Preset("ivar-shelf", 18.0, 20),
+           Preset("ivar-side-front", 44.2, 20),
+           Preset("ivar-side-side", 32.0, 20),
            Preset("lack", 50.25, 20),
            Preset("generic", 18.35, 20)]
 

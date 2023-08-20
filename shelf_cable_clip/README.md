@@ -25,6 +25,9 @@ Sample prints: Kallax inner for 5mm cable diameter, Kallax inner for 11mm cable 
 * IKEA Besta shelves and outer walls (18.35mm)
 * IKEA Besta top shelf (30.7mm)
 * IKEA Besta center wall (37.7mm)
+* IKEA Ivar shelves (18.0mm)
+* IKEA Ivar side unit, front-mounted (44.2mm)
+* IKEA Ivar side unit, side-mounted (32.0mm)
 * IKEA Lack desk and legs (50.25mm)
 * generic shelves (18.35mm)
     * this size fits IKEA Metod shelves and non-IKEA branded shelves, so chances are that it will fit for many others too
