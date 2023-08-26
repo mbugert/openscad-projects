@@ -55,7 +55,7 @@ module shape2d() {
     // screw perimeters
     offset(screw_perimeter_t) {
         hole_position() {
-            axle_2d(screw_m8, clearance=screw_clearance_medium);
+            axle_2d("M8", clearance=clearance_loose);
         }
         wood_plug_position() {
             screw_hole_2d(wood_plug_d);
@@ -88,7 +88,7 @@ module shape2d() {
 
 module hole_shape2d() {
     hole_position() {
-        axle_2d(screw_m8, clearance=screw_clearance_medium);
+        axle_2d("M8", clearance=clearance_loose);
     }
     wood_plug_position() {
         screw_hole_2d(wood_plug_d, clearance=clearance_fit);
@@ -214,7 +214,7 @@ module m8_screw_sheath() {
         linear_extrude(height=screw_excess_length) {
             difference() {
                 circle(d=0.9*foot_hole_d);
-                axle_2d(screw_m8, clearance=screw_clearance_medium);
+                axle_2d("M8", clearance=clearance_medium);
             }
         }
     }

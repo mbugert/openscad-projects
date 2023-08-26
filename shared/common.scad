@@ -10,6 +10,8 @@ max_value = 100000;
 // can handle without supports.
 printer_max_overhang_degrees = 55;
 
+// TODO relate clearance to printer nozzle diameter
+
 clearance_fit = 0.1;
 clearance_medium = 0.2;
 clearance_loose = 0.4;
