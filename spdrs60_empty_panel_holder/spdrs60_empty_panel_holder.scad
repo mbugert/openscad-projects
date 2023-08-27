@@ -34,8 +34,8 @@ panel_cover_clips_cutout_z = 1;
 // honeycomb fill dimensions
 comb_x = 7;
 comb_y = 4;
-comb_size = (x-2*tx)/comb_x;
 comb_thick = 1.25;
+comb_size = (x-2*tx)/comb_x - comb_thick;
 comb_lowest_z = 5;
 comb_highest_z = 0.75*z;
 
@@ -53,7 +53,9 @@ module shell_cutout() {
 module honey() {
     // remove an ellipsoid from the honeycomb to save some material
     difference() {
-        honeycomb_structure_3d(comb_size, comb_thick, comb_x, comb_y, comb_highest_z);
+        linear_extrude(height=comb_highest_z) {
+            honeycomb_2d(comb_size, comb_thick, comb_x, comb_y, center=true);
+        }
         translate([0,0,comb_highest_z])
             resize([x,y,2*(comb_highest_z-comb_lowest_z)])
                 sphere(1);

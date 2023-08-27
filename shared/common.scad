@@ -132,34 +132,41 @@ module round_out_3d(radius, which_edge, object_dims) {
     }
 }
 
-// Extruded honeycomb structure.
-// Parameters: size, wall thickness, how many in x, how many in y, height
-module honeycomb_structure_3d(s, t, x, y, h) {
+// Honeycomb structure.
+// Parameters: hex inner diameter, wall thickness, how many in x, how many in y
+module honeycomb_2d(s, t, x, y, center=false) {
     module hex() {
         difference() {
+            circle($fn=6, r=s+t);
             circle($fn=6, r=s);
-            circle($fn=6, r=s-t);
         }
     }
     module hex_column(y) {
         for (yi=[0:1:y-1]) {
             dx = 0;
-            dy = 2*cos(30)*(s-t/2);
-            translate(yi*[dx,dy])
+            dy = 2*cos(30)*(s+t/2);
+            translate(yi*[dx,dy]) {
                 hex();
+            }
+        }
+    }
+    module hex_grid() {
+        for (xi=[0:1:x-1]) {
+            dx = xi*3*sin(30)*(s+t/2);
+            dy = (xi%2 == 0? 0 : 1)*sin(60)*(s+t/2);
+            translate([dx, dy]) {
+                hex_column(y);
+            }
         }
     }
 
-    dx = -(x-1)/2*3*sin(30)*(s-t/2);
-    dy = -y*cos(30)*(s-t/2);
-    translate([dx, dy]) {
-        linear_extrude(height=h) {
-            for (xi=[0:1:x-1]) {
-                dx = xi*3*sin(30)*(s-t/2);
-                dy = (xi%2 == 0? 0 : 1)*sin(60)*(s-t/2);
-                translate([dx, dy])
-                    hex_column(y);
-            }
+    if (center) {
+        dx = -(x-1)/2*3*sin(30)*(s+t/2);
+        dy = -y*cos(30)*(s+t/2);
+        translate([dx, dy]) {
+            hex_grid();
         }
+    } else {
+        hex_grid();
     }
 }
