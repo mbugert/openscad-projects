@@ -1,3 +1,5 @@
+E = 2.7182818284590452;
+
 // extra space, so difference() operations in 3D are rendered without
 // z-fighting in the OpenSCAD preview
 dif = 1;
@@ -15,11 +17,6 @@ printer_max_overhang_degrees = 55;
 clearance_fit = 0.1;
 clearance_medium = 0.2;
 clearance_loose = 0.4;
-
-module screw_hole_2d(d, clearance=0) {
-    hole_d = d + 2*clearance;
-    circle(d = hole_d);
-}
 
 module cylinder_slice(r, h, a){
     rotate_extrude(angle=a) {

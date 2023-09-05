@@ -58,7 +58,7 @@ module shape2d() {
             axle_2d("M8", clearance=clearance_loose);
         }
         wood_plug_position() {
-            screw_hole_2d(wood_plug_d);
+            circle(d=wood_plug_d);
         }
     }
     // stabilizing cross
@@ -91,7 +91,7 @@ module hole_shape2d() {
         axle_2d("M8", clearance=clearance_loose);
     }
     wood_plug_position() {
-        screw_hole_2d(wood_plug_d, clearance=clearance_fit);
+        circle(d=wood_plug_d + 2*clearance_fit);
     }
 }
 
