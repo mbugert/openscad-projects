@@ -13,6 +13,7 @@ To customize models:
 | Folder | Image | Description | Pre-generated STL files |
 |--------|-------|-------------|-----------|
 | [audio_jack_through_hole_mount](audio_jack_through_hole_mount) | ![](audio_jack_through_hole_mount/docs/adapter_printed01.webp) | Kludge for adding an AUX IN jack to a car dashboard. | |
+| [bathroom_lamp_mount](bathroom_lamp_mount) | ![](bathroom_lamp_mount/docs/mounted_backside.webp) | Instead of drilling more holes into bathroom tiles, print an adapter that reuses the existing holes. | |
 | [capture_card_monitor_pole_mount](capture_card_monitor_pole_mount) | ![](capture_card_monitor_pole_mount/docs/printed01.webp) | Capture card mount for monitors with pole-shaped stands. | |
 | [dokument_letter_tray_mount](dokument_letter_tray_mount) | ![](dokument_letter_tray_mount/docs/front.jpg) | Adapter for mounting an [IKEA Dokument letter tray](https://www.ikea.cn/cn/en/assembly_instructions/dokument-letter-tray__AA-367796-2_pub.PDF) to the underside of a table. | [thingiverse.com](https://www.thingiverse.com/thing:2759384) |
 | [gopro3_lens_adapter](gopro3_lens_adapter) | ![](gopro3_lens_adapter/docs/adapter_printed01.webp) | Adapter for attaching lenses or circular filters to a GoPro Hero 3. | [printables.com](https://www.printables.com/model/544654-gopro-hero-3-lens-adapter) |

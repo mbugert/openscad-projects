@@ -1,0 +1,3 @@
+include <parts.scad>
+
+assembly();

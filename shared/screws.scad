@@ -135,6 +135,8 @@ _din562_specs = [
 function _select_spec(m, specs) = [for (spec = specs) if (spec[0] == m) spec][0];
 
 
+
+
 // ----------------------------------------------------------------------------
 // PARAMETERS
 
@@ -172,11 +174,15 @@ module axle_2d(m, clearance=0.0) {
 	}
 }
 
+function din912_head_z(m, k, clearance) =
+	let (spec = _select_spec(m=m, specs=_din912_specs))
+		(clearance > 0 && k != undef)? k : spec[3];
+
 module _din912_head(m, k, clearance) {
 	spec = _select_spec(m=m, specs=_din912_specs);
 	d = spec[1];
 	d_k = spec[2];
-	_k = (clearance > 0 && k != undef)? k : spec[3];
+	_k = din912_head_z(m, k, clearance);
 	s = spec[4];
 
 	difference() {
@@ -197,14 +203,18 @@ module din912(m, l=10, k=undef, clearance=0.0) {
 	}
 }
 
+function din7997_head_z(m) =
+	let (spec = _select_spec(m=m, specs=_din7997_specs), d = spec[1], k_max = spec[2], d_k = spec[3])
+		min(k_max, ((d_k - d)/2) / tan(45));
+
+
 module _din7997_head(m, k, clearance) {
 	spec = _select_spec(m=m, specs=_din7997_specs);
 	d = spec[1];
-	k_max = spec[2];
 	d_k = spec[3];
 	_k = (clearance > 0 && k != undef)? k : spec[4];
 
-	head_z = min(k_max, ((d_k - d)/2) / tan(45));
+	head_z = din7997_head_z(m);
 	difference() {
 		union() {
 			// if clearance is given, add a cylinder-shaped head
