@@ -18,9 +18,71 @@ clearance_fit = 0.1;
 clearance_medium = 0.2;
 clearance_loose = 0.4;
 
+function clamp(v, min_, max_) = min(max(v, min_), max_);
+
 module cylinder_slice(r, h, a){
     rotate_extrude(angle=a) {
         square([r, h]);
+    }
+}
+
+module pill(d, l, center=false) {
+    translation = center? [0, -(l-d)/2] : [d/2, d/2];
+    translate(translation) {
+        hull() {
+            circle(d=d);
+            translate([0, l - d]) {
+                circle(d=d);
+            }
+        }
+    }
+}
+
+// Two-dimensional U shape. The U shape opens towards +y.
+// With u_angle, the U can be opened (<180) or closed (>180) further.
+// If center=true, U bend's origin will be positioned at (0, 0, 0).
+// If center_rotation=true, the shape is rotated so that the U shape opens
+// towards +y even if u_angle != 180.
+// Two children objects can be passed, which will be positioned at the center
+// of one of the two U's tips. If children_only=true, the U shape is not drawn,
+// and only the child positioning is run.
+module u_shape(d_inner, t, arms_l, u_angle=180, center=true,
+               center_rotation=true, children_only=false) {
+    translation = center? [0, 0] : (d_inner/2 + t) * [1, 1];
+    rotation = center_rotation? [0, 0, -(u_angle - 180) / 2] : [0, 0, 0];
+    translate(translation) {
+        rotate(rotation) {
+            if (!children_only) {
+                rotate([0, 0, 180]) {
+                    difference() {
+                        circle_section(d_inner/2 + t, u_angle);
+                        circle_section(d_inner/2, u_angle);
+                    }
+                }
+            }
+            rotate([0, 0, u_angle - 180]) {
+                translate([d_inner/2, 0]) {
+                    if (!children_only) {
+                        square([t, arms_l]);
+                    }
+                    if ($children == 2) {
+                        translate([t/2, arms_l]) {
+                            children(0);
+                        }
+                    }
+                }
+            }
+            translate([-d_inner/2 - t, 0]) {
+                if (!children_only) {
+                    square([t, arms_l]);
+                }
+                if ($children == 2) {
+                    translate([t/2, arms_l]) {
+                        children(1);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -165,5 +227,85 @@ module honeycomb_2d(s, t, x, y, center=false) {
         }
     } else {
         hex_grid();
+    }
+}
+
+// Diamond structure.
+// t: strut thickness
+// s: horizontal inner diameter (measured at the center of the struts, i.e. assuming t=0)
+// x: how many in x
+// y: how many in y
+// opening angle: an opening angle of 45° will produce squares standing on a corner
+module diamond_2d(s, t, x, y, opening_angle=printer_max_overhang_degrees, center=false) {
+    module piece() {
+        hyp = 0.5 * s / cos(opening_angle);
+        translate([-s/2, 0]) {
+            rotate([0, 0, opening_angle]) {
+                translate([0, -t/2]) {
+                    square([hyp, t]);
+                }
+            }
+        }
+    }
+    module diamond() {
+        mirror_copy([0, 1, 0]) {
+            mirror_copy([1, 0, 0]) {
+                piece();
+            }
+        }
+    }
+    module diamond_grid() {
+        // make a grid of diamonds
+        for (xi=[0:1:x-1]) {
+            for (yi=[0:1:y-1]) {
+                translate([xi * dx, yi * dy]) {
+                    diamond();
+                }
+            }
+        }
+    }
+
+    dx = s;
+    dy = s * tan(opening_angle);
+
+    if (center) {
+        translate([(1-x)/2 * dx, (1-y)/2 * dy]) {
+            diamond_grid();
+        }
+    } else {
+        translate([dx/2, dy/2]) {
+            diamond_grid();
+        }
+    }
+}
+
+// mirror and keep the original
+module mirror_copy(v) {
+    mirror(v) {
+        children();
+    }
+    children();
+}
+
+// Cylinder with dimples in it. Can be differenced with other geometry to
+// signify where a model can be grabbed or pinched.
+module finger_negative_with_dimples(h, d=25, depth=0.25, dimple_r = 1.5, dimples_per_360=19) {
+    // vertical distance of rings depends on dimple angular distance
+    ring_z_dist = 0.5 * PI * d / dimples_per_360;
+    // number of rings depends on cylinder target height
+    num_rings = max(ceil(h / ring_z_dist), 1) + 1;
+    difference() {
+        cylinder(d=d, h=h);
+        for (ring = [0:num_rings-1]) {
+            for (xi = [0:dimples_per_360-1]) {
+                // two rows with interleaved children
+                z_rot_degrees = 360 * (xi + 1) + (ring % 2 == 0? 0 : 180);
+                rotate([0, 0, z_rot_degrees / dimples_per_360]) {
+                    translate([d/2 + (1 - depth) * dimple_r, 0, ring * ring_z_dist]) {
+                        sphere(dimple_r, $fn=30);
+                    }
+                }
+            }
+        }
     }
 }
