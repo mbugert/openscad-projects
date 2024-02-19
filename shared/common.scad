@@ -8,6 +8,9 @@ dif_factor = 1.01;
 // sometimes a large value is needed to cut certain regions
 max_value = 100000;
 
+// sometimes a small value is needed for 3D hulling between nearly 2D shapes
+min_value = 0.00001;
+
 // Acute angle between horizon and part. The smallest angle the printer
 // can handle without supports.
 printer_max_overhang_degrees = 55;
