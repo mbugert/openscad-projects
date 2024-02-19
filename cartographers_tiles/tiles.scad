@@ -18,7 +18,7 @@ tile_set = "cartographers";      // ["cartographers", "cartographers_heroes"]
 z_height = 4.0;     // [0.2:0.1:10.0]
 
 // outline thickness (up to tiles being solid)
-outline_t = 2;   // [0.1:0.1:25]
+outline_t = 1.5;   // [0.1:0.1:25]
 
 // width of bridges for joining disconnected sections
 bridge_t = 2.5;     // [0.0:0.1:10]
