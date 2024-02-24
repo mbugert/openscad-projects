@@ -6,38 +6,40 @@ $fn = 100;
 // ----------------------------------------------------------------------------
 // MEASUREMENTS
 
+/* [Measurements] */
+
 // pole diameter of monitor stand
-pole_d = 55;
+pole_d = 55;    // [1:0.01:100]
 
 // horizontal lens offset from the camera center; used to horizontally align
 // the lens above the pole
 // GoPro Hero 3: lens is 15mm off to the right
-gopro_lens_offset = 15;
+gopro_lens_offset = 15;     // [-50:0.1:50]
 
 // ----------------------------------------------------------------------------
 // PARAMETERS
 
+/* [Parameters] */
+
 // wall thickness
-thickness = 2.5;
+thickness = 2.5;    // [1:0.1:5]
 
 // z distance between top of monitor stand and GoPro mounting axle
-pole_offset_z = 30;
-// z height of sheath around pole (the larger, the sturdier the mount, but
-// make sure the sheath does not collide with the monitor when the monitor is
-// pushed all the way up)
-pole_sheath_z = 15;
+pole_offset_z = 30;     // [0:1:200]
+// z height of sheath around pole (the larger, the sturdier the mount, but make sure the sheath does not collide with the monitor when the monitor is pushed all the way up)
+pole_sheath_z = 15;     // [0:1:100]
 
-// radius of flat top of the volcano shape, enough to accomodate the GoPro
-// mount
+// radius of flat top of the volcano shape, enough to accomodate the GoPro mount
 volcano_crater_r = 14.3;
-
-// cable holder parameters
-holder_z = 8;
-holder_pos_y = -1;
-holder_cutout_r = 10;
 
 // enable/disable cable holder
 add_cable_holder = true;
+// cable holder z height
+holder_z = 8;   // [1:1:20]
+// cable holder y position
+holder_pos_y = -1;  // [-10:1:10]
+// cable holder cutout radius
+holder_cutout_r = 10;   // [0:1:20]
 
 // ----------------------------------------------------------------------------
 // PARTS
@@ -85,13 +87,17 @@ module cable_holder_holder() {
 
 module bottom() {
     if (add_cable_holder) {
-        difference() {
-            rotate_extrude() {
-                sheath_2d(pole_r, thickness);
+        render() {
+            difference() {
+                rotate_extrude() {
+                    sheath_2d(pole_r, thickness);
+                }
+                cable_holder_cutout();
             }
-            cable_holder_cutout();
         }
-        cable_holder_holder();
+        render() {
+            cable_holder_holder();
+        }
     } else {
         rotate_extrude() {
             sheath_2d(pole_r, thickness);
