@@ -22,6 +22,7 @@ To customize models:
 | [gopro_monitor_pole_mount](gopro_monitor_pole_mount) | ![](gopro_monitor_pole_mount/docs/back.webp) | GoPro mount for monitors with pole-shaped stands. | [printables.com](https://www.printables.com/model/545721/) |
 | [graphite_powder_bottle_cap](graphite_powder_bottle_cap) | ![](graphite_powder_bottle_cap/docs/bottle_cap.webp) | Friction fit cap for graphite powder bottles. | [printables.com](https://www.printables.com/model/800242) |
 | [hultarp_hook_pin](hultarp_hook_pin) | ![](hultarp_hook_pin/docs/pin02.webp) | Pins that stop [IKEA Hultarp hooks](https://www.ikea.com/us/en/p/hultarp-hook-black-10444445/) from falling off the rail. | [printables.com](https://www.printables.com/model/544662-ikea-hultarp-hook-pin) |
+| [niecorol_blinds_mount](niecorol_blinds_mount) | ![](niecorol_blinds_mount/docs/assembly.webp) | Adapter for attaching Nie-Co-Rol plant supports to roller blinds. | |
 | [spdrs60_empty_panel_holder](spdrs60_empty_panel_holder) | ![](spdrs60_empty_panel_holder/docs/preview.webp) | Holder for empty panels within the control panel of German SpDrS60 railway control centers. | |
 | [shelf_cable_clip](shelf_cable_clip) | ![](shelf_cable_clip/docs/installed.webp) | Cable management clips with extra strong grip for IKEA Kallax, Besta, and others. | [printables.com](https://www.printables.com/model/558365) |
 | [smart_card_dummy](smart_card_dummy) | ![](smart_card_dummy/docs/half_inserted.webp) | Dust protector for smart card readers. | [printables.com](https://www.printables.com/model/565108/) |
