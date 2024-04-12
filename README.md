@@ -28,6 +28,7 @@ To customize models:
 | [smart_card_dummy](smart_card_dummy) | ![](smart_card_dummy/docs/half_inserted.webp) | Dust protector for smart card readers. | [printables.com](https://www.printables.com/model/565108/) |
 | [soap_dish_wavy_circular](soap_dish_wavy_circular) | ![](soap_dish_wavy_circular/docs/printed.webp) | Remake of this [this rectangular soap dish](https://www.printables.com/model/213202-modern-soap-dish-with-removable-collection-tray) with circular footprint. | [printables.com](https://www.printables.com/model/551876) |
 | [tidafors_foot_extension](tidafors_foot_extension) | ![](tidafors_foot_extension/docs/sandwich_printed02.webp) | Printable couch feet extensions to make a robot vacuum fit underneath an [IKEA Tidafors couch](https://www.ikea.com/us/en/assembly_instructions/tidafors-sofa-bed__AA-509180-4_pub.PDF). | [printables.com](https://www.printables.com/model/544671-extension-for-ikea-tidafors-couch-feet) |
+| [vbrake_washer](vbrake_washer) | ![](vbrake_washer/docs/washer.webp) | Temporary washer for V-Brake pads | |
 | [x220t_hdd_lid](x220t_hdd_lid) | ![](x220t_hdd_lid/docs/lid_01.webp) | Thinkpad X220 Tablet hard drive lid. | |
 
 ## Decorative Objects
