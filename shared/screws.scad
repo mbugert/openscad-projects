@@ -145,11 +145,15 @@ screw_fn = 20;
 // ----------------------------------------------------------------------------
 // PARTS
 
-module _apply_clearance(clearance) {
+module _apply_clearance(clearance, z_clearance=true) {
 	minkowski() {
 		children();
 		if (clearance > 0) {
-			sphere(r=clearance);
+			if (z_clearance) {
+				sphere(r=clearance);
+			} else {
+				cylinder(r=clearance, h=min_value);
+			}
 		}
 	}
 }
@@ -289,13 +293,13 @@ module iso7045(m, l=10, k=undef, clearance=0.0) {
 }
 
 // ISO 4032 hex nut
-module iso4032(m, k=undef, clearance=0.0) {
+module iso4032(m, k=undef, clearance=0.0, z_clearance=true) {
 	spec = _select_spec(m=m, specs=_iso4032_specs);
 	d = spec[1];
 	_k = (clearance > 0 && k != undef)? k : spec[2];
 	s = spec[3];
 
-	_apply_clearance(clearance=clearance) {
+	_apply_clearance(clearance=clearance, z_clearance=z_clearance) {
 		linear_extrude(height=_k) {
 			difference() {
 				rotate([0, 0, 30]) {
@@ -311,13 +315,13 @@ module iso4032(m, k=undef, clearance=0.0) {
 }
 
 // DIN 562 square nut
-module din562(m, k=undef, clearance=0.0) {
+module din562(m, k=undef, clearance=0.0, z_clearance=true) {
 	spec = _select_spec(m=m, specs=_din562_specs);
 	d = spec[1];
 	s = spec[2];
 	_k = (clearance > 0 && k != undef)? k : spec[4];
 
-	_apply_clearance(clearance=clearance) {
+	_apply_clearance(clearance=clearance, z_clearance=z_clearance) {
 		linear_extrude(height=_k) {
 			difference() {
 				square([d, d], center=true);
