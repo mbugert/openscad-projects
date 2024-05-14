@@ -13,6 +13,7 @@ To customize models:
 | Folder | Image | Description | Pre-generated STL files |
 |--------|-------|-------------|-----------|
 | [audio_jack_through_hole_mount](audio_jack_through_hole_mount) | ![](audio_jack_through_hole_mount/docs/adapter_printed01.webp) | Kludge for adding an AUX IN jack to a car dashboard. | |
+| [bambu_refill_on_prusa_spool](bambu_refill_on_prusa_spool) | ![](bambu_refill_on_prusa_spool/docs/demo.webp) | Repurpose a Prusament spool to fit Bambulab refills. | [printables.com](https://www.printables.com/model/879492-bambu-refill-on-prusa-spool) |
 | [bathroom_lamp_mount](bathroom_lamp_mount) | ![](bathroom_lamp_mount/docs/mounted_backside.webp) | Instead of drilling more holes into bathroom tiles, print an adapter that reuses the existing holes. | |
 | [capture_card_monitor_pole_mount](capture_card_monitor_pole_mount) | ![](capture_card_monitor_pole_mount/docs/printed01.webp) | Capture card mount for monitors with pole-shaped stands. | |
 | [cartographers_tiles](cartographers_tiles) | ![](cartographers_tiles/docs/tiles.webp) | Tangible version of the tiles from the [Cartographers](https://boardgamegeek.com/boardgame/263918/cartographers) and [Cartographers Heroes](https://boardgamegeek.com/boardgame/315767/cartographers-heroes) board games. | [printables.com](https://www.printables.com/model/772490-tiles-for-cartographers) |
