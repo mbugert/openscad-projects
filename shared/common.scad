@@ -29,6 +29,37 @@ module cylinder_slice(r, h, a){
     }
 }
 
+// Linear extrude with the top tapered to a specifiable angle. One use case is
+// extruding shapes that should be printable without supports (when rotated
+// upside down).
+// h is total height (including tapered section), angle_x are the degrees for
+// tapering on the x axis, width_y is the extent of the children on the y axis.
+module tapered_linear_extrude(h, angle_x, width_y) {
+    // z-height of tapered section
+    taper_z = tan(angle_x) * width_y;
+
+    // rotate back, put tapered section on top, translate to touch xy plane
+    translate([0, 0, h - taper_z]) {
+        mirror([0, 0, 1]) {
+            rotate([-angle_x, 0, 0]) {
+                // extrude, rotate on x, cut with plane-filling cube
+                render() difference() {
+                    rotate([angle_x, 0, 0]) {
+                        translate([0, 0, -taper_z]) {
+                            linear_extrude(h) {
+                                children();
+                            }
+                        }
+                    }
+                    translate([-max_value/2, -max_value/2, -max_value]) {
+                        cube(max_value);
+                    }
+                }
+            }
+        }
+    }
+}
+
 module pill(d, l, center=false) {
     translation = center? [0, -(l-d)/2] : [d/2, d/2];
     translate(translation) {
@@ -239,7 +270,8 @@ module honeycomb_2d(s, t, x, y, center=false) {
 // x: how many in x
 // y: how many in y
 // opening angle: an opening angle of 45° will produce squares standing on a corner
-module diamond_2d(s, t, x, y, opening_angle=printer_max_overhang_degrees, center=false) {
+// invert: do not draw the struts, draw the diamonds inside the struts
+module diamond_2d(s, t, x, y, opening_angle=printer_max_overhang_degrees, center=false, invert=false) {
     module piece() {
         hyp = 0.5 * s / cos(opening_angle);
         translate([-s/2, 0]) {
@@ -257,6 +289,7 @@ module diamond_2d(s, t, x, y, opening_angle=printer_max_overhang_degrees, center
             }
         }
     }
+
     module diamond_grid() {
         // make a grid of diamonds
         for (xi=[0:1:x-1]) {
@@ -271,14 +304,25 @@ module diamond_2d(s, t, x, y, opening_angle=printer_max_overhang_degrees, center
     dx = s;
     dy = s * tan(opening_angle);
 
-    if (center) {
-        translate([(1-x)/2 * dx, (1-y)/2 * dy]) {
-            diamond_grid();
+    module struts() {
+        if (center) {
+            translate([(1-x)/2 * dx, (1-y)/2 * dy]) {
+                diamond_grid();
+            }
+        } else {
+            translate([dx/2, dy/2]) {
+                diamond_grid();
+            }
+        }
+    }
+
+    if (invert) {
+        difference() {
+            square([x*dx, y*dy], center=center);
+            struts();
         }
     } else {
-        translate([dx/2, dy/2]) {
-            diamond_grid();
-        }
+        struts();
     }
 }
 

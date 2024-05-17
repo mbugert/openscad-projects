@@ -191,9 +191,10 @@ module _din912_head(m, k, clearance) {
 
 	difference() {
 		cylinder(d=d_k, h=_k, $fn=screw_fn);
+		// hex drive
 		if (clearance <= 0) {
 			translate([0, 0, dif]) {
-				// TODO potentially incorrect
+				// TODO potentially incorrectly sized
 				cylinder(d=s, h=_k+dif, $fn=6);
 			}
 		}
