@@ -158,11 +158,11 @@ module _apply_clearance(clearance, z_clearance=true) {
 	}
 }
 
-module axle(m, l, clearance, specs) {
+module axle(m, l, clearance, z_clearance, specs) {
 	spec = _select_spec(m=m, specs=specs);
 	d = spec[1];
 
-	_apply_clearance(clearance=clearance) {
+	_apply_clearance(clearance=clearance, z_clearance=z_clearance) {
 		translate([0,0,-l]) {
 			cylinder(d=d, h=l, $fn=screw_fn);
 		}
@@ -202,8 +202,8 @@ module _din912_head(m, k, clearance) {
 }
 
 // DIN 912 allen bolt
-module din912(m, l=10, k=undef, clearance=0.0) {
-	axle(m, l=l, clearance=clearance, specs=_din912_specs) {
+module din912(m, l=10, k=undef, clearance=0.0, z_clearance=true) {
+	axle(m, l=l, clearance=clearance, z_clearance=z_clearance, specs=_din912_specs) {
 		_din912_head(m, k=k, clearance=clearance);
 	}
 }
@@ -238,8 +238,8 @@ module _din7997_head(m, k, clearance) {
 }
 
 // DIN 7997 countersunk screw, pozidriv
-module din7997(m, l=10, k=undef, clearance=0.0) {
-	axle(m, l=l, clearance=clearance, specs=_din7997_specs) {
+module din7997(m, l=10, k=undef, clearance=0.0, z_clearance=z_clearance) {
+	axle(m, l=l, clearance=clearance, z_clearance=z_clearance, specs=_din7997_specs) {
 		_din7997_head(m, k=k, clearance=clearance);
 	}
 }
@@ -287,8 +287,8 @@ module _iso7045_head(m, k, clearance) {
 }
 
 // ISO 7045 pan head screw, pozidriv
-module iso7045(m, l=10, k=undef, clearance=0.0) {
-	axle(m, l=l, clearance=clearance, specs=_iso7045_specs) {
+module iso7045(m, l=10, k=undef, clearance=0.0, z_clearance=true) {
+	axle(m, l=l, clearance=clearance, z_clearance=z_clearance, specs=_iso7045_specs) {
 		_iso7045_head(m, k=k, clearance=clearance);
 	}
 }
