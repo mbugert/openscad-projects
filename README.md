@@ -26,6 +26,7 @@ To customize models:
 | [niecorol_blinds_mount](niecorol_blinds_mount) | ![](niecorol_blinds_mount/docs/assembly.webp) | Adapter for attaching Nie-Co-Rol plant supports to roller blinds. | |
 | [spdrs60_empty_panel_holder](spdrs60_empty_panel_holder) | ![](spdrs60_empty_panel_holder/docs/preview.webp) | Holder for empty panels within the control panel of German SpDrS60 railway control centers. | |
 | [shelf_cable_clip](shelf_cable_clip) | ![](shelf_cable_clip/docs/installed.webp) | Cable management clips with extra strong grip for IKEA Kallax, Besta, and others. | [printables.com](https://www.printables.com/model/558365) |
+| [slatted_frame_spacer](slatted_frame_spacer) | ![](slatted_frame_spacer/docs/spacer.webp) | Prevents slatted frames from slipping in a double bed. | |
 | [smart_card_dummy](smart_card_dummy) | ![](smart_card_dummy/docs/half_inserted.webp) | Dust protector for smart card readers. | [printables.com](https://www.printables.com/model/565108/) |
 | [soap_dish_wavy_circular](soap_dish_wavy_circular) | ![](soap_dish_wavy_circular/docs/printed.webp) | Remake of this [this rectangular soap dish](https://www.printables.com/model/213202-modern-soap-dish-with-removable-collection-tray) with circular footprint. | [printables.com](https://www.printables.com/model/551876) |
 | [staple_remover_locking_pin](staple_remover_locking_pin) | ![](staple_remover_locking_pin/docs/printed_part.webp) | Replacement for a broken staple remover locking pin. | [printables.com](https://www.printables.com/model/1006313-staple-remover-locking-pin) |
