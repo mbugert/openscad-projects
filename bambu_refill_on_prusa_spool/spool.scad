@@ -220,11 +220,12 @@ module spool_core() {
     }
 
     // add spiral on the inside to reduce flex
-    translate([0, 0, -bambu_center_x/2]) {
-        angle = atan(bambu_center_x / (spool_core_spiral_rotations * bambu_center_d * PI));
+    _bambu_center_x = bambu_center_x - spool_core_spiral_size;
+    translate([0, 0, -_bambu_center_x/2]) {
+        angle = atan(_bambu_center_x / (spool_core_spiral_rotations * bambu_center_d * PI));
         for (i = [0:1:num_spiral_elements - 1]) {
             rotate([0, 0, spool_core_spiral_rotations * 360 * i / num_spiral_elements])
-            translate([bambu_center_d/2 - spool_core_t, 0, bambu_center_x * i/num_spiral_elements]) {
+            translate([bambu_center_d/2 - spool_core_t, 0, _bambu_center_x * i/num_spiral_elements]) {
                 rotate([90 + angle, 0, 0]) {
                     cylinder(d=spool_core_spiral_size, h=1, $fn=4, center=true);
                 }
