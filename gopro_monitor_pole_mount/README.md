@@ -23,8 +23,8 @@ The GoPro frame used in pictures 1 and 2 is this one: https://www.printables.com
 * print settings: 0.2mm with supports (lots of them 😢)
 
 ### Customization
-* The mount needs to be tall enough that the camera can peek over the monitor. By default, the GoPro mounting axle is located 3cm above the end of the pole (`pole_offset_z = 30`). For tall or vertically oriented monitors, larger values might be required.
-* GoPros other than Hero 3 might require a different `gopro_lens_offset` to be horizontally centered.
+* The mount needs to be tall enough that the camera can peek over the monitor. By default, the GoPro mounting axle is located 3cm above the end of the pole (`cam_raise_z = 30`). For tall or vertically oriented monitors, larger values might be required.
+* GoPros other than Hero 3 might require a different `cam_lens_offset_x` to be horizontally centered.
 
 ## Ring Type
 ![](docs/ring_front.webp)
