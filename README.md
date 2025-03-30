@@ -1,6 +1,12 @@
 # OpenSCAD Projects
 Monorepo with OpenSCAD projects for functional and decorative 3D printed objects.
 
+- [Getting Started](#getting-started)
+- [Functional Objects](#functional-objects)
+    - [GoPro-related](#gopro-related)
+- [Decorative Objects](#decorative-objects)
+- [License](#license)
+
 ## Getting Started
 To customize models:
 1. Clone this entire repo
@@ -15,12 +21,8 @@ To customize models:
 | [audio_jack_through_hole_mount](audio_jack_through_hole_mount) | ![](audio_jack_through_hole_mount/docs/adapter_printed01.webp) | Kludge for adding an AUX IN jack to a car dashboard. | |
 | [bambu_refill_on_prusa_spool](bambu_refill_on_prusa_spool) | ![](bambu_refill_on_prusa_spool/docs/demo.webp) | Repurpose a Prusament spool to fit Bambulab refills. | [printables.com](https://www.printables.com/model/879492-bambu-refill-on-prusa-spool) |
 | [bathroom_lamp_mount](bathroom_lamp_mount) | ![](bathroom_lamp_mount/docs/mounted_backside.webp) | Instead of drilling more holes into bathroom tiles, print an adapter that reuses the existing holes. | |
-| [capture_card_monitor_pole_mount](capture_card_monitor_pole_mount) | ![](capture_card_monitor_pole_mount/docs/printed01.webp) | Capture card mount for monitors with pole-shaped stands. | |
 | [cartographers_tiles](cartographers_tiles) | ![](cartographers_tiles/docs/tiles.webp) | Tangible version of the tiles from the [Cartographers](https://boardgamegeek.com/boardgame/263918/cartographers) and [Cartographers Heroes](https://boardgamegeek.com/boardgame/315767/cartographers-heroes) board games. | [printables.com](https://www.printables.com/model/772490-tiles-for-cartographers) |
 | [dokument_letter_tray_mount](dokument_letter_tray_mount) | ![](dokument_letter_tray_mount/docs/front.jpg) | Adapter for mounting an [IKEA Dokument letter tray](https://www.ikea.cn/cn/en/assembly_instructions/dokument-letter-tray__AA-367796-2_pub.PDF) to the underside of a table. | [thingiverse.com](https://www.thingiverse.com/thing:2759384) |
-| [gopro3_lens_adapter](gopro3_lens_adapter) | ![](gopro3_lens_adapter/docs/adapter_printed01.webp) | Adapter for attaching lenses or circular filters to a GoPro Hero 3. | [printables.com](https://www.printables.com/model/544654-gopro-hero-3-lens-adapter) |
-| [gopro_la2205wg_mount](gopro_la2205wg_mount) | ![](gopro_la2205wg_mount/docs/adapter_printed02.webp) | Adapter for mounting a GoPro on an HP LA2205WG external monitor. | |
-| [gopro_monitor_pole_mount](gopro_monitor_pole_mount) | ![](gopro_monitor_pole_mount/docs/back.webp) | GoPro mount for monitors with pole-shaped stands. | [printables.com](https://www.printables.com/model/545721/) |
 | [graphite_powder_bottle_cap](graphite_powder_bottle_cap) | ![](graphite_powder_bottle_cap/docs/bottle_cap.webp) | Friction fit cap for graphite powder bottles. | [printables.com](https://www.printables.com/model/800242) |
 | [hultarp_hook_pin](hultarp_hook_pin) | ![](hultarp_hook_pin/docs/pin02.webp) | Pins that stop [IKEA Hultarp hooks](https://www.ikea.com/us/en/p/hultarp-hook-black-10444445/) from falling off the rail. | [printables.com](https://www.printables.com/model/544662-ikea-hultarp-hook-pin) |
 | [niecorol_blinds_mount](niecorol_blinds_mount) | ![](niecorol_blinds_mount/docs/assembly.webp) | Adapter for attaching Nie-Co-Rol plant supports to roller blinds. | |
@@ -34,6 +36,16 @@ To customize models:
 | [tidafors_foot_extension](tidafors_foot_extension) | ![](tidafors_foot_extension/docs/sandwich_printed02.webp) | Printable couch feet extensions to make a robot vacuum fit underneath an [IKEA Tidafors couch](https://www.ikea.com/us/en/assembly_instructions/tidafors-sofa-bed__AA-509180-4_pub.PDF). | [printables.com](https://www.printables.com/model/544671-extension-for-ikea-tidafors-couch-feet) |
 | [vbrake_washer](vbrake_washer) | ![](vbrake_washer/docs/washer.webp) | Temporary washer for V-Brake pads | |
 | [x220t_hdd_lid](x220t_hdd_lid) | ![](x220t_hdd_lid/docs/lid_01.webp) | Thinkpad X220 Tablet hard drive lid. | |
+
+### GoPro-related
+I sure seem to like mounting cameras on things...
+
+| Folder | Image | Description | Pre-generated STL files |
+|--------|-------|-------------|-----------|
+| [capture_card_monitor_pole_mount](capture_card_monitor_pole_mount) | ![](capture_card_monitor_pole_mount/docs/printed01.webp) | Capture card mount for monitors with pole-shaped stands. | |
+| [gopro3_lens_adapter](gopro3_lens_adapter) | ![](gopro3_lens_adapter/docs/adapter_printed01.webp) | Adapter for attaching lenses or circular filters to a GoPro Hero 3. | [printables.com](https://www.printables.com/model/544654-gopro-hero-3-lens-adapter) |
+| [gopro_la2205wg_mount](gopro_la2205wg_mount) | ![](gopro_la2205wg_mount/docs/adapter_printed02.webp) | Adapter for mounting a GoPro on an HP LA2205WG external monitor. | |
+| [gopro_monitor_pole_mount](gopro_monitor_pole_mount) | ![](gopro_monitor_pole_mount/docs/back.webp) | GoPro mount for monitors with pole-shaped stands. | [printables.com](https://www.printables.com/model/545721/) |
 
 ## Decorative Objects
 
