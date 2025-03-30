@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
-# Export STLs for common monitor sizes.
 
 import itertools
-import pathlib
-import subprocess
+import sys
+sys.path.append("../python")
+
+from render import Preset, StlPreset, render_parallel
+
 
 POLE_D = "pole_d"
 POLE_SHEATH_Z = "pole_sheath_z"
-ADD_CABLE_HOOK = "add_cable_hook"
+ADD_CABLE_HOLDER = "add_cable_holder"
+
 
 monitors = {
     "lg_ultrafine": {POLE_D: 55,
@@ -15,20 +18,17 @@ monitors = {
     "lenovo_thinkvision": {POLE_D: 46,
                            POLE_SHEATH_Z: 26}
 }
-cable_hooks = [True, False]
+cable_holder = {
+    "with_hook": {ADD_CABLE_HOLDER: True},
+    "": {ADD_CABLE_HOLDER: False}
+}
 
-target_path = pathlib.Path("target")
-target_path.mkdir(exist_ok=True)
+presets = []
+for (m, m_overrides), (c, c_overrides) in itertools.product(monitors.items(), cable_holder.items()):
+    name = m + ("_with_holder" if c else "")
+    preset = StlPreset(src="gopro_monitor_pole_mount.scad",
+                       name=name,
+                       overrides=m_overrides | c_overrides | {"$fn": 100})
+    presets.append(preset)
 
-for monitor, add_cable_hook in itertools.product(monitors, cable_hooks):
-    filename = f"gopro_monitor_pole_mount_{monitor}{'_with_hook' if add_cable_hook else ''}.stl"
-
-    overrides = []
-    for key, value in monitors[monitor].items():
-        overrides += ["-D", f"{key}={value}"]
-    subprocess.run(["openscad",
-                    "-o",
-                    target_path / filename,
-                    *overrides,
-                    "--quiet",
-                    "gopro_monitor_pole_mount.scad"])
+render_parallel(presets)
