@@ -160,6 +160,15 @@ module circle_section(r, deg) {
     }
 }
 
+function curve_points_sqrt(x, y, fn) = [ for (i = [0 : fn]) [x * i/fn, y/sqrt(x) * sqrt(x * i/fn)] ];
+function curve_points_log(x, y, fn) = [ for (i = [0 : fn]) [x * i/fn, y/log(x) * log(1e-4 + x * i/fn)] ];
+
+module curve_2d(curve_func, x, y, fn_curve=$fn) {
+    curve_points = (curve_func == "sqrt")? curve_points_sqrt(x, y, fn_curve) : curve_points_log(x, y, fn_curve);
+    points = concat(curve_points, [[x, 0]]);
+    polygon(points);
+}
+
 // For 2D round chamfers, see https://forum.openscad.org/how-to-make-round-chamfer-at-2D-object-tp19714p19799.html
 module round_chamfer(r=0, delta=0, chamfer=false, keep_size = false) {
     if (keep_size) {
