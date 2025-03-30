@@ -8,27 +8,29 @@ from render import Preset, StlPreset, render_parallel
 
 
 POLE_D = "pole_d"
-POLE_SHEATH_Z = "pole_sheath_z"
+MOUNTING_STYLE = "mounting_style"
 ADD_CABLE_HOLDER = "add_cable_holder"
 
 
 monitors = {
-    "lg_ultrafine": {POLE_D: 55,
-                     POLE_SHEATH_Z: 15},
-    "lenovo_thinkvision": {POLE_D: 46,
-                           POLE_SHEATH_Z: 26}
+    "lg_ultrafine": {POLE_D: 55},
+    "lenovo_thinkvision": {POLE_D: 46},
+    "ergotron_lx": {POLE_D: 35}
 }
-cable_holder = {
-    "with_hook": {ADD_CABLE_HOLDER: True},
-    "": {ADD_CABLE_HOLDER: False}
+mounting_styles = {
+    "hat": {MOUNTING_STYLE: "hat",
+            ADD_CABLE_HOLDER: False},
+    "hat_with_holder": {MOUNTING_STYLE: "hat",
+                        ADD_CABLE_HOLDER: True},
+    "ring": {MOUNTING_STYLE: "ring"}
 }
 
 presets = []
-for (m, m_overrides), (c, c_overrides) in itertools.product(monitors.items(), cable_holder.items()):
-    name = m + ("_with_holder" if c else "")
+for (m, m_overrides), (s, s_overrides) in itertools.product(monitors.items(), mounting_styles.items()):
+    name = "_".join([m, s])
     preset = StlPreset(src="gopro_monitor_pole_mount.scad",
                        name=name,
-                       overrides=m_overrides | c_overrides | {"$fn": 100})
+                       overrides=m_overrides | s_overrides | {"$fn": 100})
     presets.append(preset)
 
 render_parallel(presets)

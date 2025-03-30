@@ -45,7 +45,7 @@ I sure seem to like mounting cameras on things...
 | [capture_card_monitor_pole_mount](capture_card_monitor_pole_mount) | ![](capture_card_monitor_pole_mount/docs/printed01.webp) | Capture card mount for monitors with pole-shaped stands. | |
 | [gopro3_lens_adapter](gopro3_lens_adapter) | ![](gopro3_lens_adapter/docs/adapter_printed01.webp) | Adapter for attaching lenses or circular filters to a GoPro Hero 3. | [printables.com](https://www.printables.com/model/544654-gopro-hero-3-lens-adapter) |
 | [gopro_la2205wg_mount](gopro_la2205wg_mount) | ![](gopro_la2205wg_mount/docs/adapter_printed02.webp) | Adapter for mounting a GoPro on an HP LA2205WG external monitor. | |
-| [gopro_monitor_pole_mount](gopro_monitor_pole_mount) | ![](gopro_monitor_pole_mount/docs/back.webp) | GoPro mount for monitors with pole-shaped stands. | [printables.com](https://www.printables.com/model/545721/) |
+| [gopro_monitor_pole_mount](gopro_monitor_pole_mount) | ![](gopro_monitor_pole_mount/docs/hat_back.webp) ![](gopro_monitor_pole_mount/docs/ring_front.webp) | GoPro mounts for monitors with pole-shaped stands. | [printables.com](https://www.printables.com/model/545721/) |
 
 ## Decorative Objects
 
