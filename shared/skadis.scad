@@ -118,4 +118,4 @@ module skadis_board_3d_with_holes(cols, rows) {
     }
 }
 
-skadis_board_3d_with_holes(4, 10);
+//skadis_board_3d_with_holes(5, 5);
