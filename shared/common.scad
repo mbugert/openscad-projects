@@ -11,6 +11,9 @@ max_value = 100000;
 // sometimes a small value is needed for 3D hulling between nearly 2D shapes
 min_value = 0.00001;
 
+// inch to mm
+inch = 25.4;
+
 // Acute angle between horizon and part. The smallest angle the printer
 // can handle without supports.
 printer_max_overhang_degrees = 55;
@@ -22,6 +25,8 @@ clearance_medium = 0.2;
 clearance_loose = 0.4;
 
 function clamp(v, min_, max_) = min(max(v, min_), max_);
+
+function round_decimals(v, decimals=2) = round(v * 10^decimals) / 10^decimals;
 
 module cylinder_slice(r, h, a){
     rotate_extrude(angle=a) {
