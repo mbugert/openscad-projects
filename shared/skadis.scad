@@ -93,10 +93,8 @@ module skadis_board_2d(cols, rows) {
 }
 
 module skadis_board_3d(cols, rows) {
-    translate([0, 0, -skadis_board_t/2]) {
-        linear_extrude(skadis_board_t) {
-            skadis_board_2d(cols, rows);
-        }
+    linear_extrude(skadis_board_t) {
+        skadis_board_2d(cols, rows);
     }
 }
 
@@ -109,11 +107,19 @@ module skadis_board_2d_with_holes(cols, rows) {
     }
 }
 
-module skadis_board_3d_with_holes(cols, rows) {
-    difference() {
-        skadis_board_3d(cols, rows);
-        skadis_hole_positions(cols, rows) {
-            skadis_hole_3d();
+module skadis_board_3d_with_holes(cols, rows, with_fillet=true) {
+    if (!with_fillet) {
+        linear_extrude(skadis_board_t) {
+            skadis_board_2d_with_holes(cols, rows);
+        }
+    } else {
+        difference() {
+            skadis_board_3d(cols, rows);
+            translate([0, 0, skadis_board_t/2]) {
+                skadis_hole_positions(cols, rows) {
+                    skadis_hole_3d();
+                }
+            }
         }
     }
 }
