@@ -322,12 +322,14 @@ module din562(m, k=undef, clearance=0.0, z_clearance=true) {
 	s = spec[2];
 	_k = (clearance > 0 && k != undef)? k : spec[4];
 
-	_apply_clearance(clearance=clearance, z_clearance=z_clearance) {
-		linear_extrude(height=_k) {
-			difference() {
-				square([d, d], center=true);
-				if (clearance <= 0) {
-					circle(d=m, $fn=screw_fn);
+	translate([0, 0, -_k]) {
+		_apply_clearance(clearance=clearance, z_clearance=z_clearance) {
+			linear_extrude(height=_k) {
+				difference() {
+					square([s, s], center=true);
+					if (clearance <= 0) {
+						circle(d=d, $fn=screw_fn);
+					}
 				}
 			}
 		}
@@ -336,20 +338,16 @@ module din562(m, k=undef, clearance=0.0, z_clearance=true) {
 
 // Creates a chute for a square nut. Screw would be positioned on the y-axis, the chute points towards +x.
 // m: self-explanatory
-// chute_len: length of chute (measured from rotational origin of the square nut)
+// k: length of chute (measured from center of square nut)
 // clearance_vertical: vertical clearance of the chute (with the nut lying flat on its largest surface area)
 // clearance_horizontal: horizontal clearance of the chute (with the nut lying flat on its largest surface area)
 module din562_chute(m, k, clearance_vertical=0.0, clearance_horizontal=0.0) {
 	spec = _select_spec(m=m, specs=_din562_specs);
-	s = spec[2];
-	m = spec[4];
+	xy = spec[2] + clearance_horizontal;
+	z = spec[4];
 
-	xy = s + clearance_horizontal;
-    z = m + clearance_vertical;
-
-	cube([xy, xy, z], center=true);
-	translate([k/2, 0, 0]) {
-		cube([k, xy, z], center=true);
+	translate([-xy/2, -xy/2, -(z + clearance_vertical/2)]) {
+		cube([xy + max(0, k - xy/2), xy, z + clearance_vertical]);
 	}
 }
 
