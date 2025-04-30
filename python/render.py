@@ -26,8 +26,11 @@ class Preset(abc.ABC):
         if self.overrides is not None:
             for key, value in self.overrides.items():
                 overrides.append("-D")
-                if type(value) is str or type(value) is bool:
+                if isinstance(value, str):
                     overrides.append(f'{key}="{value}"')
+                elif isinstance(value, bool):
+                    bool_str = "true" if value else "false"
+                    overrides.append(f'{key}={bool_str}')
                 else:
                     overrides.append(f"{key}={value}")
 
