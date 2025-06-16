@@ -50,6 +50,8 @@ _din7997_specs = [
 	["M4.5", 4.5, 2.35, 8.3],
 	["M5",   5.0, 2.5,  9.2],
 	["M6",   6.0, 3,    11],
+	// Out of spec 6.5mm furniture screw
+	["furniture_6.5mm", 5, 1.5, 7]
 ];
 
 // ISO 7045 pan head screw, pozidriv
@@ -62,7 +64,9 @@ _iso7045_specs = [
 	["M4", 4, 1.4, 8, 3.1, 2],
 	["M5", 5, 1.6, 10, 3.8, 2.5],
 	["M6", 6, 2, 12, 4.6, 3],
-	["M8", 8, 2.5, 16, 6, 3.7]
+	["M8", 8, 2.5, 16, 6, 3.7],
+	// Out of spec IKEA Besta cabinet screws. Not ISO 7045!
+	["IKEA_M4.5", 4.5, 1.5, 10, 2.4, 1.6]
 ];
 
 // ISO 4032 hex nut
@@ -238,7 +242,7 @@ module _din7997_head(m, k, clearance) {
 }
 
 // DIN 7997 countersunk screw, pozidriv
-module din7997(m, l=10, k=undef, clearance=0.0, z_clearance=z_clearance) {
+module din7997(m, l=10, k=undef, clearance=0.0, z_clearance=true) {
 	axle(m, l=l, clearance=clearance, z_clearance=z_clearance, specs=_din7997_specs) {
 		_din7997_head(m, k=k, clearance=clearance);
 	}
