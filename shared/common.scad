@@ -370,3 +370,36 @@ module finger_negative_with_dimples(h, d=25, depth=0.25, dimple_r = 1.5, dimples
         }
     }
 }
+
+// polar to cartesian coordinates - [distance, angle]
+function pol2car(pol) = [pol[0]*cos(pol[1]), pol[0]*sin(pol[1])];
+
+
+module sine_ring(r1, r2, h=1, peaks=3) {
+    n = $fn;
+
+    // angular and vertical steps
+    angles = [for (i=[0:n-1]) i*360/(n-1)];
+    zs = [for (i=[0:n-1]) h/2+sin(peaks*i/(n-1)*360)*h/2];
+
+    // 2d cartesian coordinates of inner and outer circle sections
+    p_r_in_xy = [for (i=[0:n-1]) pol2car([r1, angles[i]])];
+    p_r_out_xy = [for (i=[0:n-1]) pol2car([r2, angles[i]])];
+
+    // the four polygonal chains constating the object
+    p_in_top = [for (i=[0:n-1]) concat(p_r_in_xy[i], zs[i])];
+    p_out_top = [for (i=[0:n-1]) concat(p_r_out_xy[i], zs[i])];
+    p_in_bottom = [for (i=[0:n-1]) concat(p_r_in_xy[i], [0])];
+    p_out_bottom = [for (i=[0:n-1]) concat(p_r_out_xy[i], [0])];
+
+    // all points - in order: inside bottom, outside bottom, inside top, outside top
+    points = concat(concat(concat(p_in_bottom, p_out_bottom), p_in_top), p_out_top);
+
+    faces_inside = [for (i=[0:n-2]) [2*n+i+1, 2*n+i, i, i+1]];
+    faces_outside = [for (i=[0:n-2]) [n+i+1, n+i, 3*n+i, 3*n+i+1]];
+    faces_bottom = [for (i=[0:n-2]) [i+1, i, n+i, n+i+1]];
+    faces_top = [for (i=[0:n-2]) [3*n+i+1, 3*n+i, 2*n+i, 2*n+i+1]];
+    faces = concat(concat(concat(faces_inside, faces_outside), faces_bottom), faces_top);
+
+    polyhedron(points, faces);
+}
