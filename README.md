@@ -35,6 +35,7 @@ To customize models:
 | [straw_rack](straw_rack) | ![](straw_rack/docs/installed_00.webp) | Efficient storage for metal straws in a drawer. | [printables.com](https://www.printables.com/model/1248734-space-efficient-straw-rack) |
 | [tidafors_foot_extension](tidafors_foot_extension) | ![](tidafors_foot_extension/docs/sandwich_printed02.webp) | Printable couch feet extensions to make a robot vacuum fit underneath an [IKEA Tidafors couch](https://www.ikea.com/us/en/assembly_instructions/tidafors-sofa-bed__AA-509180-4_pub.PDF). | [printables.com](https://www.printables.com/model/544671-extension-for-ikea-tidafors-couch-feet) |
 | [vbrake_washer](vbrake_washer) | ![](vbrake_washer/docs/washer.webp) | Temporary washer for V-Brake pads | |
+| [window_block](window_block) | ![](window_block/docs/block_01.webp) | Keeps the window from slamming shut. | |
 | [x220t_hdd_lid](x220t_hdd_lid) | ![](x220t_hdd_lid/docs/lid_01.webp) | Thinkpad X220 Tablet hard drive lid. | |
 
 ### GoPro-related
